@@ -343,4 +343,203 @@ int main() {
 }
 
 //q17
-asdsdsad
+#include <stdio.h>
+
+int main() {
+    int h;
+    printf("Height? \n\n");
+    scanf("%d", &h);
+
+    for (int i = 1; i <= h; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d", i);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//q18
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter a number: \n");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n-i; j++) printf(" ");
+        for (int k = 1; k <= i; k++) printf("#");
+        printf("\n");
+    }
+    return 0;
+}
+
+//q19
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Height?\n\n");
+    scanf("%d", &n);
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n-i; j++) printf(" ");
+        for (int k = 1; k <= i; k++) printf("%d", i);
+        printf("\n");
+    }
+    return 0;
+}
+
+//q20
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf(">\n");
+    scanf("%d", &n);
+
+    int mid = (n + 1) / 2;
+    
+    if (n == 0) {
+        printf("Too small!");
+    }
+    
+    else {
+    for (int i = 1; i <= n; i++) {
+        int stars = i <= mid ? (2 * i - 1) : (2 * (n - i + 1) - 1);
+        int spaces = (n - stars) / 2;
+        for (int j = 0; j < spaces; j++) printf(" ");
+        for (int k = 0; k < stars; k++) printf("*");
+        printf("\n");
+    }
+    }
+    return 0;
+}
+
+//q21
+#include <stdio.h>
+
+int main() {
+    char word[50];
+    int valid;
+
+    do {
+        valid = 1;
+        printf("What is your first name?\n\n");
+        fgets(word, sizeof(word), stdin);
+        
+        int len = 0;
+        while (word[len] != '\0') {
+            if (word[len] == '\n') word[len] = '\0';
+            len++;
+        }
+
+        if (!(word[0] >= 'A' && word[0] <= 'Z')) {
+            printf("Invalid input!\n");
+            valid = 0;
+            continue;
+        }
+
+        for (int i = 1; word[i] != '\0'; i++) {
+            if (!((word[i] >= 'a' && word[i] <= 'z'))) {
+                printf("Invalid input!\n");
+                valid = 0;
+                break;
+            }
+        }
+    } while (!valid);
+
+    printf("%s is a valid first name.\n", word);
+    return 0;
+}
+
+
+//q22
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char input[50];
+    int valid;
+
+    printf("Please input the item to identify:\n");
+    scanf("%49s", input);
+
+    do {
+
+        valid = 1;
+        if (strcmp(input, "apple") == 0 ||
+            strcmp(input, "banana") == 0 ||
+            strcmp(input, "orange") == 0 ||
+            strcmp(input, "melon") == 0 ||
+            strcmp(input, "tomato") == 0) {
+            printf("%s is fruit.\n", input);
+        }
+        else if (strcmp(input, "carrot") == 0 ||
+                 strcmp(input, "potato") == 0 ||
+                 strcmp(input, "spinach") == 0 ||
+                 strcmp(input, "onion") == 0 ||
+                 strcmp(input, "broccoli") == 0) {
+            printf("%s is vegetable.\n", input);
+        }
+        else {
+            printf("%s is not a fruit or vegetable, try again: \n", input);
+            scanf("%49s", input);
+            valid = 0;
+        }
+    } while (!valid);
+
+    return 0;
+}
+
+//q23
+#include <stdio.h>
+#include <string.h>
+
+int is_primary(const char *color) {
+    return (strcmp(color, "Red") == 0 ||
+            strcmp(color, "Blue") == 0 ||
+            strcmp(color, "Yellow") == 0);
+}
+
+int main() {
+    char c1[50], c2[50];
+
+    // Get first valid primary colour
+    do {
+        printf("First colour?\n");
+        scanf("%49s", c1);
+        if (!is_primary(c1)) {
+            printf("\n%s is not a valid primary colour!!!\n\n", c1);
+        }
+    } while (!is_primary(c1));
+
+    // Get second valid primary colour
+    do {
+        printf("Second colour?\n\n");
+        scanf("%49s", c2);
+        if (!is_primary(c2)) {
+            printf("%s is not a valid primary colour!!!\n\n", c2);
+        }
+    } while (!is_primary(c2));
+
+    // Output result (example: just print the mix)
+    if ((strcmp(c1, "Red") == 0 && strcmp(c2, "Blue") == 0) ||
+        (strcmp(c1, "Blue") == 0 && strcmp(c2, "Red") == 0)) {
+        printf("%s and %s mix to make Violet\n", c1, c2);
+    } else if ((strcmp(c1, "Red") == 0 && strcmp(c2, "Yellow") == 0) ||
+               (strcmp(c1, "Yellow") == 0 && strcmp(c2, "Red") == 0)) {
+        printf("%s and %s mix to make Orange\n", c1, c2);
+    } else if ((strcmp(c1, "Blue") == 0 && strcmp(c2, "Yellow") == 0) ||
+               (strcmp(c1, "Yellow") == 0 && strcmp(c2, "Blue") == 0)) {
+        printf("%s and %s mix to make Green\n", c1, c2);
+    } else {
+        printf("%s and %s mix to make %s\n", c1, c2, c1);
+    }
+
+    return 0;
+}
+
+//q24
+
