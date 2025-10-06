@@ -1,0 +1,169 @@
+//week6comp500
+
+//q10
+ 
+
+#include <stdio.h>
+
+int main() {
+    int num, max = -9999, entered = 0;
+
+    do {
+        printf("Enter a number (0 to quit):\n");
+
+        scanf("%d", &num); 
+        if (num == 0) break; 
+        
+        if (num > max) max = num;
+        
+        entered = 1; 
+
+    } while (1); 
+
+    if (entered == 1) {
+        printf("\nThe highest number was %d.\n", max);
+    } 
+    
+    else {
+        printf("\nNo numbers entered!\n");
+    }
+
+    return 0;
+}
+
+//q11
+#include <stdio.h>
+
+int main() {
+    int num, entered = 0, sum = 0;
+
+    do {
+        printf("Enter a number (0 to quit):\n");
+
+        scanf("%d", &num); 
+        if (num == 0) break; 
+        
+        sum += num; 
+        
+        entered = 1; 
+
+    } while (1); 
+
+    if (entered == 1) {
+        printf("\nThe tally is: %d\n", sum);
+    } 
+    else {
+        printf("\nThe tally is: 0\n");
+    }
+    return 0;
+}
+
+//q12
+#include <stdio.h>
+
+int main() {
+    char str[80];
+    printf("> \n");
+    fgets(str, sizeof(str), stdin); 
+
+    for (int i = 0; str[i] != '\0'; i++) { 
+        switch (str[i]) {
+            case 'A': case 'a': str[i] = '$'; break;
+            case 'E': case 'e': str[i] = '#'; break;
+            case 'I': case 'i': str[i] = '@'; break;
+            case 'O': case 'o': str[i] = '*'; break;
+            case 'U': case 'u': str[i] = '='; break;
+        }
+    }
+    printf("%s", str); 
+    return 0;
+}
+
+//q13
+
+#include <stdio.h>
+
+int main() {
+    char word[21];
+    printf("Please enter your name:\n");
+    fgets(word, sizeof(word), stdin);
+
+    for (int i = 0; word[i] != '\0'; i++) {
+        if (word[i] >= 'a' && word[i] <= 'z') {
+            word[i] = word[i] - ('32');
+        }
+    }
+
+    printf("%s\n", word);
+    return 0;
+}
+
+//q14
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[100], b[100];
+    int count1[26] = {0}, count2[26] = {0};
+
+    printf("Word 1: \n"); scanf("%s", a);
+    printf("Word 2: \n\n"); scanf("%s", b);
+
+    for (int i = 0; a[i]; i++) count1[a[i]-'a']++;
+    for (int i = 0; b[i]; i++) count2[b[i]-'a']++;
+
+    int match = 1;
+    for (int i = 0; i < 26; i++) {
+        if (count1[i] != count2[i]) match = 0;
+    }
+    if (match) printf("YES! %s and %s\n", a, b);
+    else printf("NO!\n");
+    return 0;
+}
+
+//q15
+#include <stdio.h>
+
+int main() {
+    char text[100], ch;
+    int count = 0;
+
+    printf("Enter some text: \n");
+    scanf(" %[^\n]", text);
+
+    printf("Count which character? \n");
+    scanf(" %c", &ch);
+
+    for (int i = 0; text[i]; i++) {
+        if (text[i] == ch) count++;
+    }
+    if (count >= 2 || count < 1) {
+    printf("'%c' appears %d times in \"%s\"\n", ch, count, text);
+    }
+    else if (count == 1) {
+    printf("'%c' appears %d time in \"%s\"\n", ch, count, text);
+    }
+    return 0;
+}
+
+//q16
+#include <stdio.h>
+
+int main() {
+    int w, h;
+    printf("Width? \n"); 
+    scanf("%d", &w);
+    
+    printf("Height? \n"); 
+    scanf("%d", &h);
+
+    for (int i = 1; i <= h; i++) {
+        for (int j = 1; j <= w; j++) {
+            printf("%4d", i * j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//q17
