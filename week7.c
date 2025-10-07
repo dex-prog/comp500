@@ -554,6 +554,85 @@ char to_upper(char input) {
 
 //q15
 
+#include <stdio.h>
 
+int nand_gate(int a, int b);
+int nor_gate(int a, int b);
+int xor_gate(int a, int b);
+int xnor_gate(int a, int b);
 
+int main(void)
+{
+    int a, b;
+
+    printf("a b           a NAND b    a NOR b    a XOR b    a XNOR b\n");
+
+    for (a = 0; a <= 1; a++) {
+        for (b = 0; b <= 1; b++) {
+            printf("%d %d           %d           %d          %d          %d\n",
+                   a, b,
+                   nand_gate(a, b),
+                   nor_gate(a, b),
+                   xor_gate(a, b),
+                   xnor_gate(a, b));
+        }
+    }
+
+    return 0;
+}
+
+int nand_gate(int a, int b) {
+    return !(a && b);
+}
+
+int nor_gate(int a, int b) {
+    return !(a || b);
+}
+
+int xor_gate(int a, int b) {
+    return (a || b) && !(a && b);
+}
+
+int xnor_gate(int a, int b) {
+    return !xor_gate(a, b);
+}
+
+//q16
+
+#include <stdio.h>
+
+char convert_percent_to_grade(float percent);
+
+int main() {
+    float percent;
+
+    printf("What's the percentage:\n");
+    scanf("%f", &percent);
+
+    char grade = convert_percent_to_grade(percent);
+
+        printf("%.2f%% is %c Grade\n", percent, grade);
+
+    return 0;
+}
+
+char convert_percent_to_grade(float percent) {
+    if (percent >= 80 && percent <= 100) {
+        return 'A';
+    } 
+    else if (percent >= 65 && percent < 80) {
+        return 'B';
+    } 
+    else if (percent >= 50 && percent < 65) {
+        return 'C';
+    } 
+    else if (percent >= 0 && percent < 50) {
+        return 'D';
+    } 
+    else {
+        return 'X'; 
+    }
+}
+
+//q17
 
