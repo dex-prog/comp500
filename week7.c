@@ -308,6 +308,76 @@ float find_maximum(float num1, float num2, float num3) {
 
 //q8
 
+#include <stdio.h>
+
+char to_lowercase(char c);
+
+int main()
+{
+    char c;
+
+    printf("Please input a letter: \n");
+    scanf(" %c", &c);
+
+    char result = to_lowercase(c);
+
+    if (result == '\x00') {
+        printf("%c's lowercase is \\x00\n", c);
+    } else {
+        printf("%c's lowercase is %c\n", c, result);
+    }
+
+    return 0;
+}
+
+char to_lowercase(char c)
+{
+    if (c >= 'A' && c <= 'Z') {
+        return c + 32;  
+    } else if (c >= 'a' && c <= 'z') {
+        return '\x00';      
+    } else {
+        return '\x00';  
+    }
+}
+
+
+//q9
+
+#include <stdio.h>
+
+int identify_minimum_value(int num1, int num2);
+
+int main()
+{
+    int num1, num2;
+
+    printf("Please input number 1: \n");
+    scanf("%d", &num1);
+    
+    printf("Please input number 2: \n");
+    scanf("%d", &num2);
+    
+    int min_num = identify_minimum_value(num1, num2);
+    
+    printf("The minimum number of %d and %d is %d\n", num1, num2, min_num);
+    
+    return 0;
+}
+
+int identify_minimum_value(int num1, int num2) {
+    if (num1 < num2) {
+        return num1; 
+    } else if (num2 < num1) {
+        return num2; 
+    } else {
+        return num1; 
+    }
+}
+
+//q10
+
+
 
 
 
