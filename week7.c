@@ -527,6 +527,33 @@ void print_bill(int num_nights, float room_rate, float mini_bar_total)
 
 //q14
 
+#include <stdio.h>
+
+char to_upper (char input);
+
+int main() {
+    
+    char input; //cap = to_upper(input);
+    
+    printf("Please enter a letter: ");
+    scanf(" %c", &input);
+    
+    printf("%c", to_upper(input));
+    
+    return 0;
+}
+
+char to_upper(char input) {
+    if (input >= 'a' && input <= 'z') {
+        return input - 32;
+    }
+    else {
+        return '\x00';
+    }
+}
+
+//q15
+
 
 
 
