@@ -375,8 +375,157 @@ int identify_minimum_value(int num1, int num2) {
     }
 }
 
+
+
 //q10
 
+
+//q11
+#include <stdio.h>
+
+// TODO: Declare compute_bill
+float compute_bill(float starter_price, float main_price, float dessert_price);
+
+// TODO: Declare print_bill
+void print_bill(float starter_price, float main_price, float dessert_price);
+
+int main(void)
+{
+	float starter_price = 0.0f;
+	float main_price = 0.0f;
+	float dessert_price = 0.0f;
+
+	printf("Starter price? ");
+	scanf("%f", &starter_price);
+
+	printf("Main price? ");
+	scanf("%f", &main_price);
+
+	printf("Dessert price?");
+	scanf("%f", &dessert_price);
+    
+	printf("\n");
+
+	print_bill(starter_price, main_price, dessert_price);
+
+	return 0;
+}
+
+// TODO: Define compute_bill
+float compute_bill(float starter_price, float main_price, float dessert_price)
+{
+	return starter_price + main_price + dessert_price;
+}
+// TODO: Define print_bill
+void print_bill(float starter_price, float main_price, float dessert_price)
+{
+    printf("Starter: $%.2f\n", starter_price);
+    printf("Main:    $%.2f\n", main_price);
+    printf("Dessert: $%.2f\n", dessert_price);
+    
+    printf("---------------\n");
+    printf("Total:   $%.2f\n", compute_bill(starter_price, main_price, dessert_price));
+}
+
+//q12
+
+#include <stdio.h>
+
+// TODO: Declare compute_bill
+float compute_bill(int num_nights, float room_rate, float mini_bar_total);
+
+// TODO: Declare print_bill
+void print_bill(int num_nights, float room_rate, float mini_bar_total);
+
+int main(void)
+{
+	int num_nights;
+	float room_rate = 0.0f;
+	float mini_bar_total = 0.0f;
+
+	printf("Number of nights?\n");
+	scanf("%d", &num_nights);
+
+	printf("Room rate?\n");
+	scanf("%f", &room_rate);
+
+	printf("Minibar?\n");
+	scanf("%f", &mini_bar_total);
+    
+	printf("\n");
+
+	print_bill(starter_price, room_rate, mini_bar_total);
+
+	return 0;
+}
+
+// TODO: Define compute_bill
+float compute_bill(int num_nights, float room_rate, float mini_bar_total)
+{
+	return (num_nights × room_rate) + mini_bar_total;
+}
+// TODO: Define print_bill
+void print_bill(int num_nights, float room_rate, float mini_bar_total)
+{
+    printf("Starter: %d\n", num_nights);
+    printf("Main:    $%.2f\n", room_rate);
+    printf("Dessert: $%.2f\n", mini_bar_total);
+    
+    printf("---------------\n");
+    printf("Total:   $%.2f\n", compute_bill(num_nights, room_rate, mini_bar_total));
+}
+
+//q13
+
+#include <stdio.h>
+
+// Declare compute_bill
+float compute_bill(int num_nights, float room_rate, float mini_bar_total);
+
+// Declare print_bill
+void print_bill(int num_nights, float room_rate, float mini_bar_total);
+
+int main(void)
+{
+    int num_nights;
+    float room_rate = 0.0f;
+    float mini_bar_total = 0.0f;
+
+    printf("Number of nights?\n");
+    scanf("%d", &num_nights);
+
+    printf("Room rate?\n");
+    scanf("%f", &room_rate);
+
+    printf("Minibar?\n");
+    scanf("%f", &mini_bar_total);
+
+    printf("\n");
+
+    // Correct variable name
+    print_bill(num_nights, room_rate, mini_bar_total);
+
+    return 0;
+}
+
+// Define compute_bill
+float compute_bill(int num_nights, float room_rate, float mini_bar_total)
+{
+    // Use * for multiplication
+    return (num_nights * room_rate) + mini_bar_total;
+}
+
+// Define print_bill
+void print_bill(int num_nights, float room_rate, float mini_bar_total)
+{
+    printf("Nights:    %d\n", num_nights);
+    printf("Room rate: $%6.2f\n", room_rate);
+    printf("Minibar:   $%6.2f\n", mini_bar_total);
+    printf("-----------------\n");
+    printf("Total:     $%.2f\n", compute_bill(num_nights, room_rate, mini_bar_total));
+}
+
+//q14
 
 
 
