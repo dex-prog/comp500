@@ -815,3 +815,177 @@ int main() {
 
 //q23
 
+#include <stdio.h>
+
+void draw_inverted_triangle(int height) {
+    for (int k = 0; k < (2 * height); k++) {
+                printf("_");
+            }
+            printf("\n");
+    for (int i = 1; i <= height; i++) {
+    
+        for (int j = 0; j < i - 1; j++) {
+            printf(" ");
+        }
+
+        if (i < height) {
+            printf("\\");  // Left edge
+            if (i > 1) {
+                for (int k = 0; k < (2 * (height - i)); k++) {
+                    printf(" ");
+                }
+                printf("/");  // Right edge — escaped properly
+            } else {
+                for (int k = 0; k < (2 * (height - i) ); k++) {
+                    printf(" ");
+                }
+                printf("/");  // Top point
+            }
+            printf("\n");
+        } else {
+            printf("\\");
+            printf("/\n");
+        }
+    }
+    
+}
+
+int main() {
+    int height;
+    printf("enter height: \n");
+    scanf("%d", &height);
+    draw_inverted_triangle(height);
+    return 0;
+}
+
+
+//q24
+#include <stdio.h>
+
+void print_nozzle(int height);
+void print_body(int height, int width);
+void print_logo(int width);
+
+int main(void)
+{
+	int body_width, body_height;
+
+    // ask for and read the rocket body width, validating that it is at least 6
+    printf("Rocket body width (minimum 6)? \n");
+    scanf("%d", &body_width);
+    while (body_width < 6) {
+        printf("Width must be at least 6. Please enter a valid width: ");
+        scanf("%d", &body_width);
+    }
+    
+    // ask for and read the rocket body height, validating that it is non-negative
+    printf("Rocket body height? \n");
+    scanf("%d", &body_height);
+    while (body_height < 0) { 
+        printf("Height cannot be negative. Please enter a valid height: ");
+        scanf("%d", &body_height);
+    }
+    
+    int width = body_width;
+	int height = body_height;
+	
+	print_nozzle(width/2);
+	printf("+");
+	for (int i = 0; i < width; i++) {
+        printf("-");
+        }
+        printf("+\n");
+	print_body(height, width);
+	print_logo(width);
+	printf("+");
+	for (int i = 0; i < width; i++) {
+        printf("-");
+        }
+        printf("+\n");
+	print_body(height, width);
+
+	print_nozzle(width/2);
+	return 0;
+}
+
+void print_nozzle(int height){
+    for (int i = 1; i <= height; i++) {
+        for (int j = 0; j < height - i + 1; j++) {
+            printf(" ");
+        }
+
+        if (i < height) {
+            printf("/");
+            if (i > 1) {
+                for (int k = 0; k < (2 * i  - 3); k++) {
+                    printf(" ");
+                }
+                printf(" \\");
+            } else {
+                printf("\\");
+            }
+            printf("\n");
+        } else {
+            printf("/");
+            for (int k = 0; k < (2 * i - 3); k++) {
+                printf(" ");
+            }
+            if (height != 1) {
+                printf(" ");
+                
+            }
+            printf("\\\n");
+        }
+    }
+}
+void print_body(int height, int width){
+    for (int j = 0; j < height; j++) {
+        printf("|");
+        for (int i = 0; i < width; i++) {
+            printf(" ");
+        }
+        printf("|\n");
+    }
+        printf("+");
+    for (int i = 0; i < width; i++) {
+        printf("-");
+        }
+        printf("+\n");
+}
+void print_logo(int width) {
+    const char *line1 = "N";
+    const char *line2 = "Z";
+    const char *line3 = "Rocket";
+
+    int len1 = 1;          
+    int len2 = 1;     
+    int len3 = 6;          
+
+    int pad1 = (width - len1) / 2;
+    int pad2 = (width - len2) / 2;
+    int pad3 = (width - len3) / 2;
+
+    // First line
+    printf("|");
+    for (int i = 0; i < pad1 - 1; i++) printf(" ");
+    printf("%s", line1);
+    for (int i = 0; i < width - pad1 - len1 + 1; i++) printf(" ");
+    printf("|\n");
+
+    // Second line
+    printf("|");
+    for (int i = 0; i < pad2 + 1; i++) printf(" ");
+    printf(" %s", line2);
+    for (int i = 0; i < width - pad2 - len2 - 2; i++) printf(" ");
+    printf("|\n");
+
+    // Third line
+    printf("|");
+    for (int i = 0; i < pad3; i++) printf(" ");
+    printf("%s", line3);
+    for (int i = 0; i < width - pad3 - len3; i++) printf(" ");
+    printf("|\n");
+}
+
+//q25
+#include <stdio.h>
