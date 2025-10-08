@@ -379,6 +379,52 @@ int identify_minimum_value(int num1, int num2) {
 
 //q10
 
+#include <stdio.h>
+
+int calculate_pizza_share(int input);
+
+int main(void)
+{
+    int input;
+    
+    printf("How many people?\n");
+    if (scanf("%d", &input) != 1) {
+        printf("Error\n");
+        return 0;
+    }
+
+    int slice = calculate_pizza_share(input);
+
+    if (slice == -1) {
+        printf("Error\n");
+    } else {
+        printf("%d people get %d slice(s) each.\n", input, slice);
+    }
+
+    return 0;
+}
+
+int calculate_pizza_share(int input)
+{
+    // invalid or nonsense cases
+    if (input <= 0) {
+        return -1;
+    }
+
+    if (input == 2) {
+        return 4;
+    } else if (input == 4) {
+        return 2;
+    } else if (input == 6 || input == 8) {
+        return 1;
+    } else if (input >= 9) {
+        return 0;
+    } else if (input == 1){
+        return 8;
+    }
+    return -1;
+}
+
 
 //q11
 #include <stdio.h>
@@ -454,7 +500,7 @@ int main(void)
     
 	printf("\n");
 
-	print_bill(starter_price, room_rate, mini_bar_total);
+	print_bill(num_nights, room_rate, mini_bar_total);
 
 	return 0;
 }
@@ -462,18 +508,19 @@ int main(void)
 // TODO: Define compute_bill
 float compute_bill(int num_nights, float room_rate, float mini_bar_total)
 {
-	return (num_nights × room_rate) + mini_bar_total;
+	return (num_nights * room_rate) + mini_bar_total;
 }
 // TODO: Define print_bill
 void print_bill(int num_nights, float room_rate, float mini_bar_total)
 {
-    printf("Starter: %d\n", num_nights);
-    printf("Main:    $%.2f\n", room_rate);
-    printf("Dessert: $%.2f\n", mini_bar_total);
+    printf("Nights:    %d\n", num_nights);
+    printf("Room rate: $%6.2f\n", room_rate);
+    printf("Minibar:   $%6.2f\n", mini_bar_total);
     
-    printf("---------------\n");
-    printf("Total:   $%.2f\n", compute_bill(num_nights, room_rate, mini_bar_total));
+    printf("-----------------\n");
+    printf("Total:     $%.2f\n", compute_bill(num_nights, room_rate, mini_bar_total));
 }
+
 
 //q13
 
