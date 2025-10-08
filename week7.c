@@ -479,56 +479,6 @@ void print_bill(int num_nights, float room_rate, float mini_bar_total)
 
 #include <stdio.h>
 
-// Declare compute_bill
-float compute_bill(int num_nights, float room_rate, float mini_bar_total);
-
-// Declare print_bill
-void print_bill(int num_nights, float room_rate, float mini_bar_total);
-
-int main(void)
-{
-    int num_nights;
-    float room_rate = 0.0f;
-    float mini_bar_total = 0.0f;
-
-    printf("Number of nights?\n");
-    scanf("%d", &num_nights);
-
-    printf("Room rate?\n");
-    scanf("%f", &room_rate);
-
-    printf("Minibar?\n");
-    scanf("%f", &mini_bar_total);
-
-    printf("\n");
-
-    // Correct variable name
-    print_bill(num_nights, room_rate, mini_bar_total);
-
-    return 0;
-}
-
-// Define compute_bill
-float compute_bill(int num_nights, float room_rate, float mini_bar_total)
-{
-    // Use * for multiplication
-    return (num_nights * room_rate) + mini_bar_total;
-}
-
-// Define print_bill
-void print_bill(int num_nights, float room_rate, float mini_bar_total)
-{
-    printf("Nights:    %d\n", num_nights);
-    printf("Room rate: $%6.2f\n", room_rate);
-    printf("Minibar:   $%6.2f\n", mini_bar_total);
-    printf("-----------------\n");
-    printf("Total:     $%.2f\n", compute_bill(num_nights, room_rate, mini_bar_total));
-}
-
-//q14
-
-#include <stdio.h>
-
 char to_upper (char input);
 
 int main() {
@@ -552,7 +502,7 @@ char to_upper(char input) {
     }
 }
 
-//q15
+//q14
 
 #include <stdio.h>
 
@@ -597,7 +547,7 @@ int xnor_gate(int a, int b) {
     return !xor_gate(a, b);
 }
 
-//q16
+//q15
 
 #include <stdio.h>
 
@@ -634,5 +584,234 @@ char convert_percent_to_grade(float percent) {
     }
 }
 
+//q16
+#include <stdio.h>
+
+    char is_vowel(char input);
+
+int main() {
+
+    char input;
+
+    printf("Enter:\n");
+    scanf("%c", &input);
+
+    printf("Is it a vowel: %c", is_vowel(input));
+    return 0;
+}
+
+char is_vowel(char input) {
+    if (input == 'a' || input == 'e' || input == 'i' || input == 'o' || input == 'u' ||
+        input == 'A' || input == 'E' || input == 'I' || input == 'O' || input == 'U') {
+        return '1';
+    } else {
+        return '0';
+    }
+}
+
 //q17
+
+#include <stdio.h>
+
+    char is_letter(char input);
+
+int main() {
+
+    char input;
+
+    printf("Enter:\n");
+    scanf("%c", &input);
+
+    printf("Is it a letter: %c", is_letter(input));
+    return 0;
+}
+
+char is_letter(char input) {
+    if ((input >= 'A' && input <= 'Z') || (input >= 'a' && input <= 'z')) {
+        return '1';
+    } else {
+        return '0';
+    }
+}
+
+//q18
+
+#include <stdio.h>
+
+    char is_digit(char input);
+
+int main() {
+
+    char input;
+
+    printf("Enter:\n");
+    scanf("%c", &input);
+
+    printf("Is it a digit: %c", is_digit(input));
+    return 0;
+}
+
+char is_digit(char input) {
+    if (input >= '0' && input <= '9') {
+        return '1';
+    } else {
+        return '0';
+    }
+}
+
+//q19
+
+#include <stdio.h>
+
+    char is_hex_digit(char input);
+
+int main() {
+
+    char input;
+
+    printf("Enter:\n");
+    scanf("%c", &input);
+
+    printf("Is it a hex digit: %c", is_hex_digit(input));
+    return 0;
+}
+
+char is_hex_digit(char input) {
+    if ((input >= '0' && input <= '9') ||
+        (input >= 'A' && input <= 'F') ||
+        (input >= 'a' && input <= 'f')) {
+        return '1';
+    } else {
+        return '0';
+    }
+}
+
+//q20
+
+#include <stdio.h>
+
+    int is_positive(int input);
+
+    int is_negative(int input);
+
+    int is_zero(int input);
+
+int main() {
+
+    int input;
+
+    printf("Enter:\n");
+    scanf("%d", &input);
+
+    printf("Calling is_positive: %d\n", is_positive(input));
+    printf("Calling is_negative: %d\n", is_negative(input));
+    printf("Calling is_zero: %d\n", is_zero(input));
+    return 0;
+}
+
+int is_positive(int input) {
+    if (input > 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int is_negative(int input) {
+    if (input < 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+int is_zero(int input) {
+    if (input == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+//q21
+
+#include <stdio.h>
+
+void draw_ascii_box(char horizontal_char, char vertical_char, char corner_char, int width, int height) {
+    printf("%c", corner_char);
+    for (int i = 0; i < width - 2; i++) {
+        printf("%c", horizontal_char);
+    }
+    printf("%c\n", corner_char);
+
+    for (int j = 0; j < height - 2; j++) {
+        printf("%c", vertical_char);
+        for (int i = 0; i < width - 2; i++) {
+            printf(" ");
+        }
+        printf("%c\n", vertical_char);
+    }
+
+    printf("%c", corner_char);
+    for (int i = 0; i < width - 2; i++) {
+        printf("%c", horizontal_char);
+    }
+    printf("%c\n", corner_char);
+}
+
+int main() {
+    char horizontal_char, vertical_char, corner_char;
+    int width, height;
+
+    // Just read them silently
+    scanf(" %c %c %c %d %d", &horizontal_char, &vertical_char, &corner_char, &width, &height);
+
+    draw_ascii_box(horizontal_char, vertical_char, corner_char, width, height);
+    return 0;
+}
+
+//q22
+
+#include <stdio.h>
+
+void draw_triangle(int height) {
+    for (int i = 1; i <= height; i++) {
+        for (int j = 0; j < height - i; j++) {
+            printf(" ");
+        }
+
+        if (i < height) {
+            printf("/");  // Left edge
+            if (i > 1) {
+                for (int k = 0; k < (2 * i - 3); k++) {
+                    printf(" ");
+                }
+                printf(" \\");  // Right edge — escaped properly
+            } else {
+                printf("\\");  // Top point
+            }
+            printf("\n");
+        } else {
+            printf("/");
+            for (int k = 0; k < (2 * i - 3); k++) {
+                printf("_");
+            }
+            if (height != 1) {
+                printf("_");
+                
+            }
+            printf("\\\n");
+        }
+    }
+}
+
+int main() {
+    int height;
+    printf("enter height: \n");
+    scanf("%d", &height);
+    draw_triangle(height);
+    return 0;
+}
+
+//q23
 
