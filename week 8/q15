@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+struct Student
+{
+    char first_name[20];
+    char last_name[20];
+    int stream_code;
+};
+
+struct Student query_student(void)
+{
+    struct Student student;
+
+
+
+	printf("Input first name: \n");
+    scanf("%s", student.first_name);
+
+	printf("Input last name: \n");
+    scanf("%s", student.last_name);
+
+	printf("Input stream code: \n");
+    scanf("%d", &student.stream_code);
+
+    return student;
+}
+
+int main(void)
+{
+    struct Student query;
+
+	query = query_student();
+
+	printf("%s ", query.first_name);
+	printf("%s ", query.last_name);
+	printf("is in stream %d.", query.stream_code);
+
+	return 0;
+}

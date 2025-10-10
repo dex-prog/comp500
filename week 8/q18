@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+enum Result
+{
+	OUTSIDE,
+	INSIDE
+};
+
+struct Point
+{
+    int x;
+    int y;
+};
+
+struct Rectangle
+{
+    struct Point bottom_left;
+    struct Point top_right;
+};
+
+float compute_area(struct Rectangle rectangle);
+enum Result is_inside(struct Point point, struct Rectangle rectangle)
+{
+    if (point.x >= rectangle.bottom_left.x && 
+        point.x <= rectangle.top_right.x &&
+        point.y >= rectangle.bottom_left.y && 
+        point.y <= rectangle.top_right.y) {
+        return INSIDE;
+    }
+    return OUTSIDE;
+};
+int main(void)
+{
+	struct Point point;
+	int x = 0;
+	int y = 0;
+	scanf("%d", &x);
+	scanf("%d", &y);
+	point.x = x;
+	point.y = y;
+
+	struct Rectangle rectangle;
+	rectangle.bottom_left.x = 1;
+	rectangle.bottom_left.y = 1;
+	rectangle.top_right.x = 4;
+	rectangle.top_right.y = 4;
+
+	printf("Rectangle's area is %.2f\n", compute_area(rectangle));
+    if (is_inside(point, rectangle) == OUTSIDE) {
+        printf("The point is not inside of the rectangle."); }
+    else {
+	printf("The point is inside of the rectangle."); }
+	return 0;
+}
+float compute_area(struct Rectangle rectangle)
+{
+    return (rectangle.top_right.x - rectangle.bottom_left.x) * (rectangle.top_right.y - rectangle.bottom_left.y);
+}

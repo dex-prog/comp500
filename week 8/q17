@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+enum Monster_Type
+{
+    Changeling,
+    Mummy,
+    Werewolf,
+    Vampire,
+    Zombie
+};
+
+struct Monster
+{
+    enum Monster_Type type;
+    int age;        // in years, -1 for immortal
+    int power;      // 0-1000
+    float speed;    // in km/h
+    int stamina;    // 0-10000
+};
+
+struct Monster create_monster(enum Monster_Type type);
+void print_monster(struct Monster monster);
+
+int main(void)
+{
+	srand(0);
+	
+	struct Monster monster1 = create_monster(Changeling);
+	print_monster(monster1);
+	struct Monster monster2 = create_monster(Mummy);
+	print_monster(monster2);
+	struct Monster monster3 = create_monster(Werewolf);
+	print_monster(monster3);
+	struct Monster monster4 = create_monster(Vampire);
+	print_monster(monster4);
+	struct Monster monster5 = create_monster(Zombie);
+	print_monster(monster5);
+
+	return 0;
+}
+
+struct Monster create_monster(enum Monster_Type type)
+{
+	struct Monster monster;
+	switch (type)
+	{
+	case Zombie:
+		monster.type = Zombie;
+		monster.age = -1;
+		monster.power = rand() % 101;
+		monster.speed = (rand() % 51) / 100.0f;
+		monster.stamina = rand() % 500 + 1;
+		break;
+	case Werewolf:
+		monster.type = Werewolf;
+		monster.age = rand() % 73 + 1;
+		monster.power = rand() % 352 + 99;
+		monster.speed = (rand() % 201) / 100.0f + 20;
+		monster.stamina = rand() % 7001 + 500;
+		break;
+	case Vampire:
+		monster.type = Vampire;
+		monster.age = rand() % 1981 + 20;
+		monster.power = rand() % 600 + 1;
+		monster.speed = (rand() % 41) / 100.0f + 10;
+		monster.stamina = rand() % 10000;
+		break;
+	case Mummy:
+		monster.type = Mummy;
+		monster.age = rand() % 8500 + 1500;
+		monster.power = rand() % 201;
+		monster.speed = (rand() % 51) / 100.0f;
+		monster.stamina = rand() % 1000;
+		break;
+	default:
+		monster.type = Changeling;
+		monster.age = rand() % 11 + 15;
+		monster.power = rand() % 50 + 50;
+		monster.speed = (rand() % 210) / 100.0f + 5;
+		monster.stamina = rand() % 5001;
+	}
+
+	return monster;
+}
+
+void print_monster(struct Monster monster)
+{
+    const char *type_strings[] = {"Changeling", "Mummy", "Werewolf", "Vampire", "Zombie"};
+    printf("Monster Type: %s\n", type_strings[monster.type]);
+    printf("         Age: %d years \n", monster.age);
+    printf("       Power: %d\n", monster.power);
+    printf("       Speed: %.2f\n", monster.speed);
+    printf("     Stamina: %d\n", monster.stamina);
+}

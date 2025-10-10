@@ -1,0 +1,537 @@
+//week 8
+
+//testing structs 
+
+#include <stdio.h>  
+#include <string.h>
+
+struct Player {
+    char name[50];
+    int score;
+};
+
+int main() {
+    
+struct Player player1; 
+struct Player player2;
+
+strcpy(player1.name, "Levi");
+    player1.score = 1500;
+
+strcpy(player2.name, "Mika");
+    player2.score = 2000;
+
+printf("name: %s\n", player1.name);
+printf("Score: %d\n", player1.score);
+
+printf("name: %s\n", player2.name);
+printf("Score: %d\n", player2.score);
+
+return 0;
+}
+
+// --------q1---------
+
+#include <stdio.h>
+
+struct Student
+{
+    char name[50];
+    int age;
+    float gpa;  
+};
+
+void print_student(struct Student a_student);
+
+int main(void)
+{
+    struct Student student;
+
+	sprintf(student.name, "Jane Doe");
+	student.age = 21;
+	student.gpa = 3.99;
+
+	print_student(student);
+
+	return 0;
+}
+
+void print_student(struct Student a_student)
+{
+    printf("Name: %s\n", a_student.name);
+    printf("Age: %d\n", a_student.age);
+    printf("GPA: %.2f\n", a_student.gpa);
+}
+
+//--------q2---------
+
+#include <stdio.h>
+
+struct Super_Hero
+{
+    char name[50];
+    int year_created;
+    float tomatometer_score;
+};
+
+void print_super_hero(struct Super_Hero a_super_hero);
+
+int main(void)
+{
+    struct Super_Hero hero;
+
+	sprintf(hero.name, "Batman");
+	hero.year_created = 1938;
+	hero.tomatometer_score = 0.27;
+
+	print_super_hero(hero);
+	
+	return 0;
+}
+
+void print_super_hero(struct Super_Hero a_super_hero)
+{
+    printf("Super hero name: %s\n", a_super_hero.name);
+    printf("Year created: %d\n", a_super_hero.year_created);
+    printf("Latest Tomatometer: %.2f\n", a_super_hero.tomatometer_score);
+}
+
+//---------q3---------
+
+#include <stdio.h>
+
+struct Movie
+{
+    char title[50];
+    int runtime_minutes;
+    float tomatometer_score;
+};
+
+void print_movie(struct Movie a_super_hero);
+
+int main(void)
+{
+    struct Movie movie;
+
+	sprintf(movie.title, "Batman Returns");
+	movie.runtime_minutes = 126;
+	movie.tomatometer_score = 0.81f;
+
+	print_movie(movie);
+	
+	return 0;
+}
+
+void print_movie(struct Movie a_movie)
+{
+    printf("Movie title:        %s\n", a_movie.title);
+    printf("Runtime in minutes: %d\n", a_movie.runtime_minutes);
+    printf("Tomatometer Score:  %.2f\n", a_movie.tomatometer_score);
+}
+
+//---------q4---------
+
+#include <stdio.h>
+
+struct Cat
+{
+    char name[50];
+    int age;
+    float weight;
+    float tail_length;
+};
+ 
+void print_cat(struct Cat a_cat);
+
+int main(void)
+{
+    struct Cat whiskers;
+
+	sprintf(whiskers.name, "Whiskers");
+	whiskers.age = 126;
+	whiskers.weight = 8;
+	whiskers.tail_length = 15;
+
+	print_cat(whiskers);
+
+	return 0;
+}
+
+void print_cat(struct Cat a_cat)
+{
+    printf("Name:        %s\n", a_cat.name);
+    printf("Age:         %d\n", a_cat.age);
+    printf("Weight:      %.2f\n", a_cat.weight);
+    printf("Tail Length: %.2f\n", a_cat.tail_length);
+}
+
+//---------q5---------
+
+#include <stdio.h>
+#include <string.h>
+
+struct Student
+{
+    char name[50];
+    float lecture_attendance;
+    float lab_attendance;
+};
+
+int main()
+{
+    struct Student student;
+    
+    strcpy (student.name, "Jane Doe");
+    student.lecture_attendance = 0.33f;
+    student.lab_attendance = 1.00f;
+    printf("Successful!!!");
+
+    return 0;
+}
+
+
+//---------q6--------- doesnt work in CV valid
+
+#include <stdio.h>
+
+struct Softdrink {
+    char name[50];
+    int serving_size; 
+    int energy_kj;
+    float caffeine_mg;
+    int max_daily_intake;
+};
+
+void print_soft_drink(struct Softdrink a_soft_drink);
+
+int main(void)
+{
+	struct Softdrink life_mod;
+
+	sprintf(life_mod.name, "Life Modulus");
+	life_mod.serving_size = 250;
+	life_mod.energy_kj = 529;
+	life_mod.caffeine_mg = 80.5f;
+	life_mod.max_daily_intake = 500;
+
+    printf("A soft drink...\n\n");
+
+	print_soft_drink(life_mod);
+
+	return 0;
+}
+
+void print_soft_drink(struct Softdrink a_soft_drink)
+{
+    printf("Name: %s\n", a_soft_drink.name);
+    printf("Serving size: %d ml\n", a_soft_drink.serving_size);
+    printf("Energy content: %d kJ\n", a_soft_drink.energy_kj);
+    printf("Caffeine content: %.6f mg\n", a_soft_drink.caffeine_mg);
+    printf("Max daily intake: %d ml\n", a_soft_drink.max_daily_intake);
+}
+
+
+//---------q7---------
+
+#include <stdio.h>
+
+struct Textbook
+{
+    char title[50];
+    int pages;
+    int chapters;
+    float weight;
+    int year;
+};
+
+void print_textbook(struct Textbook a_soft_drink);
+
+int main(void)
+{
+    struct Textbook prog_java;
+
+	sprintf(prog_java.title, "How to program Java");
+	prog_java.pages = 1350;
+	prog_java.chapters = 12;
+	prog_java.weight = 790.52f;
+	prog_java.year = 2008;
+
+    printf("A textbook...\n\n");    
+
+	print_textbook(prog_java);
+
+	return 0;
+}
+
+void print_textbook(struct Textbook a_soft_drink)
+{
+    printf("Title: %s\n", a_soft_drink.title);
+    printf("Number of pages: %d pages\n", a_soft_drink.pages);
+    printf("Number of chapters: %d chapters\n", a_soft_drink.chapters);
+    printf("Weight: %.2f g\n", a_soft_drink.weight);
+    printf("Year of publication: %d\n", a_soft_drink.year);
+}
+
+//---------q8---------
+
+#include <stdio.h>
+#include <math.h>
+
+struct Circle
+{
+    float radius;
+    float x_position;
+    float y_position;
+};
+
+float distance_between(struct Circle c1, struct Circle c2);
+
+int main(void)
+{
+	struct Circle c1;
+	struct Circle c2;
+
+    float r1, r2;
+    
+    scanf("%f", &r1);
+    scanf("%f", &r2);
+	c1.radius = r1;
+	c2.radius = r2;
+	c1.x_position = 11;
+	c1.y_position = 22;
+	c2.x_position = 4;
+	c2.y_position = 6;
+
+	float distance = distance_between(c1, c2);
+
+    distance = roundf(distance * 1000000) / 1000000;
+
+	printf("distance between two circle is %.6f.", distance);
+
+	return 0;
+}
+
+float distance_between(struct Circle c1, struct Circle c2)
+{
+    float distance = sqrt(pow((c1.x_position - c2.x_position), 2) + pow((c1.y_position - c2.y_position), 2)) - c1.radius - c2.radius;
+    return distance;
+}
+
+
+
+//---------q9---------
+
+#include <stdio.h>
+#include <string.h>
+
+struct Product
+{
+    char item_name[50];
+    char brand[50];
+    float price;
+    int quantity;
+};
+
+void print_product(struct Product a_product);
+
+int main(void)
+{
+
+    struct Product xbox;
+    struct Product ps5;
+    struct Product nintendo;
+
+
+    sprintf(xbox.item_name, "Xbox One S");
+    sprintf(xbox.brand, "Microsoft");
+    xbox.price = 395.50f;
+    xbox.quantity = 35;
+
+    sprintf(ps5.item_name, "PlayStation 4 Pro");
+    sprintf(ps5.brand, "Sony");
+    ps5.price = 538.00f;
+    ps5.quantity = 71;
+
+    sprintf(nintendo.item_name, "Switch");
+    sprintf(nintendo.brand, "Nintendo");
+    nintendo.price = 529.95f;
+    nintendo.quantity = 8;
+
+    print_product(xbox);
+    print_product(ps5);
+    print_product(nintendo);
+
+
+
+	return 0;
+}
+
+void print_product(struct Product a_product)
+{
+    printf("Item name: %s\n", a_product.item_name);
+    printf("Brand:     %s\n", a_product.brand);
+    printf("Price:     $%.2f\n", a_product.price);
+    printf("Quantity:  %d\n\n", a_product.quantity);
+}
+
+//---------q10---------
+
+#include <stdio.h>
+#include <math.h>
+
+struct Point3D
+{
+    float x;
+    float y;
+    float z;
+};
+
+float compute_distance3d(struct Point3D a, struct Point3D b);
+
+int main(void)
+{
+	struct Point3D a;
+	struct Point3D b;
+
+    float x1, y1, z1, x2, y2, z2;
+
+    scanf("%f", &x1);
+    scanf("%f", &y1);
+    scanf("%f", &z1);
+    scanf("%f", &x2);
+    scanf("%f", &y2);
+    scanf("%f", &z2);
+
+    a.x = x1; 
+    a.y = y1;
+    a.z = z1;
+    b.x = x2;
+    b.y = y2;
+    b.z = z2;
+
+	float distance = compute_distance3d(a, b);
+	printf("distance between two points is %f.", distance);
+
+	return 0;
+}
+
+float compute_distance3d(struct Point3D a, struct Point3D b)
+{
+    float distance = sqrt(pow((a.x - b.x), 2) + pow((a.y - b.y), 2) + pow((a.z - b.z), 2));
+    return distance;
+}
+
+//---------q11---------
+
+#include <stdio.h>
+struct Triangle
+{
+    int height;
+    char inner_symbol;
+};
+
+void print_triangle(struct Triangle triangle);
+
+int main(void)
+{
+    struct Triangle triangle;
+	printf("Triangle's height? \n");
+	scanf("%d", &triangle.height);
+	printf("Triangle's symbol? \n");
+	scanf(" %c", &triangle.inner_symbol);
+
+	print_triangle(triangle);
+    return 0;
+}
+
+void print_triangle(struct Triangle triangle){
+for (int i = 1; i <= triangle.height; i++) {
+        for (int j = 0; j < triangle.height - i; j++) {
+            printf(" ");
+        }
+
+        if (i < triangle.height) {
+            printf("/");  // Left edge
+            if (i > 1) {
+                for (int k = 0; k < (2 * i - 3); k++) {
+                    printf("%c", triangle.inner_symbol);
+                }
+                printf("%c\\", triangle.inner_symbol);  // Right edge — escaped properly
+            } else {
+                printf("\\");  // Top point
+            }
+            printf("\n");
+        } else {
+            printf("/");
+            for (int k = 0; k < (2 * i - 3); k++) {
+                printf("%c", triangle.inner_symbol);
+            }
+            if (triangle.height != 1) {
+                printf("%c", triangle.inner_symbol);
+                
+            }
+            printf("\\\n");
+        }
+    }
+}
+
+//---------q12---------
+
+#include <stdio.h>
+#include <stdio.h>
+struct Triangle
+{
+    int height;
+    char inner_symbol;
+};
+
+void print_inverted(struct Triangle inverted_triangle);
+
+int main(void)
+{
+    struct Triangle triangle;
+	printf("Inverted triangle's height? \n");
+	scanf("%d", &triangle.height);
+	printf("Inverted triangle's symbol? \n");
+	scanf(" %c", &triangle.inner_symbol);
+
+	print_inverted(triangle);
+    return 0;
+}
+void print_inverted(struct Triangle inverted_triangle)
+{
+for (int i = 0; i < inverted_triangle.height * 2; i++) {
+        printf("_");//spacing
+}
+printf("\n");
+for (int i = inverted_triangle.height; i >= 1; i--) {
+        for (int j = 0; j < inverted_triangle.height - i; j++) {
+            printf(" ");
+        }
+
+        if (i < inverted_triangle.height) {
+            printf("\\");  // Left edge
+            if (i > 1) {
+                for (int k = 0; k < (2 * i - 3); k++) {
+                    printf("%c", inverted_triangle.inner_symbol);
+                }
+                printf("%c/", inverted_triangle.inner_symbol);  // Right edge — escaped properly
+            } else {
+                printf("/");  // Bottom point
+            }
+            printf("\n");
+        } else {
+            printf("\\");
+            for (int k = 0; k < (2 * i - 3); k++) {
+                printf("%c", inverted_triangle.inner_symbol);
+            }
+            if (inverted_triangle.height != 1) {
+                printf("%c", inverted_triangle.inner_symbol);
+                
+            }
+            printf("/\n");
+        }
+    }
+}
+
+//---------q13---------

@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+enum Hero {   
+    const char *hero_names[] = {
+        "AQUAMAN", 
+        "BATMAN",
+        "BLACK_WIDOW",
+        "CAPTAIN_AMERICA",
+        "CYBORG",
+        "HAWKEYE",
+        "IRON_MAN",
+        "SPIDERMAN",
+        "SUPERMAN",
+        "THE_FLASH",
+        "THE_HULK",
+        "WONDER_WOMAN"
+    };
+
+    void print_hero_name(enum Hero hero_names);
+   // printf("%s ", hero_names[hero_index]);
+
+}
+enum Hero hero_names[] {
+    AQUAMAN, 
+    BATMAN,
+    BLACK_WIDOW,
+    CAPTAIN_AMERICA,
+    CYBORG,
+    HAWKEYE,
+    IRON_MAN,
+    SPIDERMAN,
+    SUPERMAN,
+    THE_FLASH,
+    THE_HULK,
+    WONDER_WOMAN
+}
+void print_marvel_or_dc(int hero_index)
+{
+    const char *hero_universes[] = {
+        "DC", 
+        "DC",
+        "MARVEL",
+        "MARVEL",
+        "DC",
+        "MARVEL",
+        "MARVEL",
+        "MARVEL",
+        "DC",
+        "DC",
+        "MARVEL",
+        "DC"
+    };
+    printf("is from %s", hero_universes[hero_index]);
+}
+
+int main(void)
+{
+	for (int i = 0; i < 12; i++)
+	{x
+		print_hero_name(i%12);
+		print_marvel_or_dc(i%12);
+		printf("\n");
+	}
+
+	return 0;
+}

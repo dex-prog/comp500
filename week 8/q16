@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+// TODO: Declare Colour structure:
+struct Colour
+{
+    unsigned char red;
+    unsigned char green;
+    unsigned char blue;
+};
+
+void print_colour(struct Colour a_colour);
+
+int main(void)
+{
+    struct Colour create_colour(unsigned char red, unsigned char green, unsigned char blue);
+
+    
+	print_colour(create_colour(255, 0, 0)); // RED
+	print_colour(create_colour(0, 255, 0)); // GREEN
+	print_colour(create_colour(0, 0, 255)); // BLUE
+	print_colour(create_colour(255, 255, 0)); // YELLOW
+	print_colour(create_colour(255, 0, 127)); // PINK
+
+	return 0;
+}
+
+struct Colour create_colour(unsigned char red, unsigned char green, unsigned char blue)
+{
+    struct Colour new_colour;
+    new_colour.red = red;
+    new_colour.green = green;
+    new_colour.blue = blue;
+    return new_colour;
+}
+
+void print_colour(struct Colour a_colour)
+{
+    printf("RGB: %d, %d, %d\n", a_colour.red, a_colour.green, a_colour.blue);
+}

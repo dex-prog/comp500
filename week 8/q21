@@ -1,0 +1,114 @@
+
+#include <stdio.h>
+
+enum Animal
+{
+
+    Antelope,
+    Dog,
+    Owl
+};
+
+void make_animal_noise(enum Animal animal);
+
+int main(void)
+{
+	enum Animal animal;
+	animal = Antelope;
+	make_animal_noise(animal);
+
+	enum Animal another_animal;
+	another_animal = Dog;
+	make_animal_noise(another_animal);
+	
+	enum Animal another_animal_2;
+	another_animal_2 = Owl;
+	make_animal_noise(another_animal_2);
+
+	return 0;
+}
+
+void make_animal_noise(enum Animal animal)
+{
+    if (animal == Antelope)
+    {
+        printf("Antelope noise: Snort\n");
+    }
+    else if (animal == Dog)
+    {
+        printf("Dog noise: Woof\n");
+    }
+    else if (animal == Owl)
+    {
+        printf("Owl noise: Hoot\n");
+    }
+
+}
+
+
+
+
+//----test run with more animals. doesnt work lol----
+
+
+#include <stdio.h>
+
+enum Animal
+{
+    Antelope,
+    Cat,
+    Dog,
+    Owl,
+    Snake,
+    Bat,
+    Dolphin,
+    Duck,
+    Mouse,
+    Horse
+}; 
+
+struct AnimalSound
+{
+    enum Animal animal;
+    const char *sound;
+};
+
+void make_animal_noise(enum Animal animal);
+
+int main(void)
+{
+
+make_animal_noise(Cat);
+make_animal_noise(Dog);
+make_animal_noise(Owl);
+make_animal_noise(Snake);
+make_animal_noise(Bat);
+make_animal_noise(Dolphin);
+make_animal_noise(Duck);
+make_animal_noise(Mouse);
+make_animal_noise(Horse);
+
+	return 0;
+}
+
+void make_animal_noise(enum Animal animal)
+{
+    struct AnimalSound animal_sounds[] = {
+        {Antelope, "Bleat"},
+        {Cat, "Meow"},
+        {Dog, "Woof"},
+        {Owl, "Hoot"},
+        {Snake, "Hiss"},
+        {Bat, "Screech"},
+        {Dolphin, "Click"},
+        {Duck, "Quack"},
+        {Mouse, "Squeak"},
+        {Horse, "Neigh"}
+    };
+
+printf("%s noise: %s\n", animal_sounds[animal].animal, animal_sounds[animal].sound);
+
+
+}
+
+

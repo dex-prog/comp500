@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+struct Vector3
+{
+    float x;
+    float y;
+    float z;
+};
+
+struct Vector3 add(struct Vector3 a, struct Vector3 b);
+
+struct Vector3 subtract(struct Vector3 a, struct Vector3 b);
+
+float dot_product(struct Vector3 a, struct Vector3 b);
+
+void print_vector3(struct Vector3 to_print);
+
+int main(void)
+{
+    struct Vector3 first;
+    struct Vector3 second;
+
+	printf("First Vector x: ");
+    scanf("%f", &first.x);
+	printf("First Vector y: ");
+    scanf("%f", &first.y);
+	printf("First Vector z: ");
+    scanf("%f", &first.z);  
+	printf("\n");
+	printf("Second Vector x: ");
+    scanf("%f", &second.x);
+	printf("Second Vector y: ");
+    scanf("%f", &second.y);
+	printf("Second Vector z: ");
+    scanf("%f", &second.z);
+    printf("Addition: ");
+    print_vector3(add(first, second));
+    printf("Subtraction: ");
+    print_vector3(subtract(first, second));
+    printf("Dot Product: %.2f", dot_product(first, second));
+    printf("\n");   
+
+	return 0;
+}
+
+struct Vector3 add(struct Vector3 a, struct Vector3 b)
+{
+    return (struct Vector3){a.x + b.x, a.y + b.y, a.z + b.z};
+}
+struct Vector3 subtract(struct Vector3 a, struct Vector3 b)
+{
+    return (struct Vector3){a.x - b.x, a.y - b.y, a.z - b.z};
+}
+float dot_product(struct Vector3 a, struct Vector3 b)
+{
+    return (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
+}
+void print_vector3(struct Vector3 to_print)
+{
+    printf("(%.2f, %.2f, %.2f)\n", to_print.x, to_print.y, to_print.z);
+}

@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <math.h>
+
+// TODO: Declare structure types here:
+struct Polar
+{
+	float r;
+	float theta;
+};
+
+struct Cartesian
+{
+	float x;
+	float y;
+};
+
+struct Polar convert_to_polar(struct Cartesian point)
+{
+    struct Polar polar_point;
+    polar_point.r = sqrt(point.x * point.x + point.y * point.y);
+    polar_point.theta = atan2(point.y, point.x);
+    return polar_point;
+}
+
+struct Cartesian convert_to_cartesian(struct Polar point)
+{
+    struct Cartesian cartesian_point;
+    cartesian_point.x = point.r * cosf(point.theta);
+    cartesian_point.y = point.r * sinf(point.theta);
+    return cartesian_point;
+}
+
+void print_polar(struct Polar to_print);
+
+void print_cartesian(struct Cartesian to_print);
+
+int main(void)
+{
+	struct Cartesian user_input;
+	struct Polar pol;
+	struct Cartesian check;
+
+	printf("Cartesian x? \n");
+	scanf("%f", &user_input.x);
+
+	printf("Cartesian y? \n");
+	scanf("%f", &user_input.y);
+
+	pol = convert_to_polar(user_input);
+
+	check = convert_to_cartesian(pol);
+
+	print_polar(pol);
+	print_cartesian(check);
+
+	return 0;
+}
+void print_polar(struct Polar to_print)
+{
+    printf("(r, theta) = (%.6f, %.6f)\n", to_print.r, to_print.theta);
+}
+void print_cartesian(struct Cartesian to_print)
+{
+    printf("(x, y) = (%.6f, %.6f)\n", to_print.x, to_print.y);
+}

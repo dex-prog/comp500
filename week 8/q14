@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+struct Rectangle
+{
+    float width;
+    float height;
+};
+
+float compute_area(struct Rectangle rectangle);
+float compute_perimeter(struct Rectangle rectangle);
+
+int main(void)
+{
+	struct Rectangle rectangle;
+
+	printf("Rectangle Width: \n");
+	scanf("%f", &rectangle.width);
+	printf("Rectangle height: \n");
+	scanf("%f", &rectangle.height);
+
+	printf("Area: %.2f\n", compute_area(rectangle));
+	printf("Perimeter: %.2f\n", compute_perimeter(rectangle));
+
+	return 0;
+}
+
+float compute_area(struct Rectangle rectangle)
+{
+    return rectangle.width * rectangle.height;
+}
+float compute_perimeter(struct Rectangle rectangle)
+{
+    return 2 * (rectangle.width + rectangle.height);
+}
