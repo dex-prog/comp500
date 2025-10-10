@@ -1,0 +1,13 @@
+#include <iostream>
+int main() {
+
+    int pos;
+
+    do {
+    std::cout << "Enter a positive number: " << std::endl;
+    std::cin >> pos;
+    } while (pos <= 0); 
+        std::cout << "You entered: " << pos << std::endl;
+        std::cin >> pos;
+    return 0;
+}
