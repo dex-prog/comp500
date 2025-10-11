@@ -1,0 +1,12 @@
+#include <iostream>
+int main() {
+    int base, expo;
+    long long result = 1;
+    std::cout << "Enter base and exponent: " << std::endl;
+    std::cin >> base >> expo;
+    for (int i = 0; i < expo; i++) {
+        result *= base;
+    }
+    std::cout << base << "^" << expo << " = " << result << std::endl;
+    return 0;
+}
