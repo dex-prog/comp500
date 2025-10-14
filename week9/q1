@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main(void)
+{
+    const char *str = "Learning about pointers.";   // a null-terminated C string
+    const char *start = str;             // pointer to the first character
+    const char *ptr = str;               // pointer we will move around
+
+    /* 1) Move ptr to point to the terminating '\0' (end of string) */
+    while (*ptr != '\0') {
+        ptr++;           // advance one character at a time
+    }
+
+    /* 2) If the string is empty, ptr == start and *ptr == '\0' now.
+          Otherwise move one step left so ptr points to the last real char. */
+    if (ptr == start) {
+        putchar('\n');   // nothing to print, empty string
+        return 0;
+    }
+    ptr--;               // now ptr points to the last character
+
+    /* 3) Walk backwards printing each character using indirection */
+    while (ptr >= start) {
+        putchar(*ptr);   // print character pointed to by ptr
+        ptr--;           // move left
+    }
+
+    putchar('\n');       // final newline
+    return 0;
+}
