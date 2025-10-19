@@ -13,8 +13,19 @@
         }
         return 0;
     }
-
 //q2
+
+
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 100; i++) {
+        if (i % 2 == 0) printf("%d is even.\n", i);
+        else printf("%d is odd.\n", i);
+    }
+    return 0;
+}
+//q3
 #include <stdio.h>
 
 int main() {
@@ -27,19 +38,6 @@ int main() {
     while (word[count] != '\0') count++;
 
     printf("%s is %d characters in length.\n", word, count);
-    return 0;
-}
-
-//q3
-
-
-#include <stdio.h>
-
-int main() {
-    for (int i = 1; i <= 100; i++) {
-        if (i % 2 == 0) printf("%d is even.\n", i);
-        else printf("%d is odd.\n", i);
-    }
     return 0;
 }
 
@@ -266,7 +264,7 @@ int main() {
 
     for (int i = 0; word[i] != '\0'; i++) {
         if (word[i] >= 'a' && word[i] <= 'z') {
-            word[i] = word[i] - ('32');
+            word[i] = word[i] - (32);
         }
     }
 
