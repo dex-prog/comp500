@@ -1,0 +1,59 @@
+#include <stdio.h>
+
+void print_day_name(enum Day day) {
+    switch(day) {
+        case MONDAY:
+            printf("Monday\n");
+            break;
+        case TUESDAY:
+            printf("Tuesday\n");
+            break;
+        case WEDNESDAY:
+            printf("Wednesday\n");
+            break;
+        case THURSDAY:
+            printf("Thursday\n");
+            break;
+        case FRIDAY:
+            printf("Friday\n");
+            break;
+        case SATURDAY:
+            printf("Saturday\n");
+            break;
+        case SUNDAY:
+            printf("Sunday\n");
+            break;
+        default:
+            printf("Invalid day\n");
+    }
+}
+
+void print_day_category(enum Day day) {
+    switch(day) {
+        case MONDAY:
+        case TUESDAY:
+        case WEDNESDAY:
+        case THURSDAY:
+        case FRIDAY:
+            printf("Weekday\n");
+            break;
+        case SATURDAY:
+        case SUNDAY:
+            printf("Weekend\n");
+            break;
+        default:
+            printf("Invalid day\n");
+    }
+}
+
+int main() {
+
+for (enum Day day = MONDAY; day <= SUNDAY; day++) {
+        print_day_name(day);
+        printf(" is a ");
+        print_day_category(day);
+        printf("\n");
+    }
+
+    return 0;
+}
