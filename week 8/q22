@@ -1,66 +1,85 @@
 #include <stdio.h>
-
-enum Hero {   
-    const char *hero_names[] = {
-        "AQUAMAN", 
-        "BATMAN",
-        "BLACK_WIDOW",
-        "CAPTAIN_AMERICA",
-        "CYBORG",
-        "HAWKEYE",
-        "IRON_MAN",
-        "SPIDERMAN",
-        "SUPERMAN",
-        "THE_FLASH",
-        "THE_HULK",
-        "WONDER_WOMAN"
-    };
-
-    void print_hero_name(enum Hero hero_names);
-   // printf("%s ", hero_names[hero_index]);
-
-}
-enum Hero hero_names[] {
+enum Hero {
     AQUAMAN, 
-    BATMAN,
-    BLACK_WIDOW,
-    CAPTAIN_AMERICA,
+    BATMAN, 
     CYBORG,
-    HAWKEYE,
-    IRON_MAN,
-    SPIDERMAN,
     SUPERMAN,
     THE_FLASH,
-    THE_HULK,
-    WONDER_WOMAN
-}
-void print_marvel_or_dc(int hero_index)
-{
-    const char *hero_universes[] = {
-        "DC", 
-        "DC",
-        "MARVEL",
-        "MARVEL",
-        "DC",
-        "MARVEL",
-        "MARVEL",
-        "MARVEL",
-        "DC",
-        "DC",
-        "MARVEL",
-        "DC"
+    WONDER_WOMAN,   
+    BLACK_WIDOW,
+    CAPTAIN_AMERICA,
+    HAWKEYE,
+    IRONMAN,
+    SPIDERMAN,
+    THE_HULK
+    
     };
-    printf("is from %s", hero_universes[hero_index]);
+
+void print_hero (enum Hero hero);
+    
+int main (){
+
+    enum Hero hero_names;
+   
+    for (int i = AQUAMAN; i <= WONDER_WOMAN; i++) {
+        hero_names = i;
+        print_hero(hero_names);
+        printf("DC\n\n");
+    }
+    for (int j = BLACK_WIDOW; j <= THE_HULK; j++) {
+        hero_names = j;
+        print_hero(hero_names);
+        printf("Marvel\n\n");
+    }
+            
+
+    //printf("Hello, World!\n");
+    return 0;
 }
 
-int main(void)
-{
-	for (int i = 0; i < 12; i++)
-	{x
-		print_hero_name(i%12);
-		print_marvel_or_dc(i%12);
-		printf("\n");
-	}
-
-	return 0;
+void print_hero (enum Hero hero){
+     switch (hero) {
+        case AQUAMAN:
+            printf("Aquaman\n");
+            break;
+        case BATMAN:
+            printf("Batman\n");
+            break;
+        case WONDER_WOMAN:
+            printf("Wonder Woman\n");
+            break;
+        case CYBORG:
+            printf("Cyborg\n");
+            break;
+        case SUPERMAN:      
+            printf("Superman\n");
+            break;
+        case THE_FLASH:
+            printf("The Flash\n");
+            break;
+        case BLACK_WIDOW:       
+            printf("Black Widow\n");
+            break;
+        case CAPTAIN_AMERICA:
+            printf("Captain America\n");
+            break;
+        case HAWKEYE:
+            printf("Hawkeye\n");
+            break;
+        case IRONMAN:
+            printf("Iron Man\n");
+            break;
+        case SPIDERMAN:
+            printf("Spiderman\n");
+            break;
+        case THE_HULK:
+            printf("The Hulk\n");
+            break;
+        
+        default:
+            printf("Unknown Hero\n");
+    }
 }
+
+
+

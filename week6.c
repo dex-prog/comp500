@@ -540,4 +540,75 @@ int main() {
 }
 
 //q24
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h> // for atoi
 
+int main() {
+    char input[20];
+    const char *months[] = {
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    };
+
+    printf("What month?\n");
+    scanf("%19s", input);
+
+    // Try converting input to number
+    int num = atoi(input);
+
+    if (num >= 1 && num <= 12) {
+        printf("VALID: %s is a month. \n", months[num - 1]);
+    } 
+    else {
+        // Check if it's a valid month name
+        int found = 0;
+        for (int i = 0; i < 12; i++) {
+            if (strcmp(input, months[i]) == 0) { // case-insensitive compare
+                printf("VALID: %s is a month.\n", months[i]);
+                found = 1;
+                break;
+            }
+        }
+        if (!found) {
+            printf("INVALID: %s is not a month.\n", input);
+        }
+    }
+
+    return 0;
+}
+
+//q25
+#include <stdio.h>
+
+int main() {
+char input;
+int x = 0, y = 0;
+printf("The player starts at (0, 0)...\n");
+while (1) {
+    printf("Enter direction (N, S, E, W) or Q to quit:\n");
+    scanf(" %c", &input);
+
+    if (input == 'Q' || input == 'q') {
+        printf("Final position: (%d, %d)\n", x, y);
+        break;
+    }
+
+    switch (input) {
+        case 'N': case 'n': y++; break;
+        case 'S': case 's': y--; break;
+        case 'E': case 'e': x++; break;
+        case 'W': case 'w': x--; break;
+        default:
+            printf("Invalid direction! Please enter N, S, E, W, or Q.\n");
+            continue;
+    }
+
+    printf("Current position: (%d, %d)\n", x, y);
+}
+
+
+
+
+return 0;
+}

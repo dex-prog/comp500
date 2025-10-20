@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <math.h>
+
+// Define the enum properly
+enum quadratic_solution {
+    two_real,
+    one_real,
+    two_complex
+};
+
+// Declare the function
+enum quadratic_solution get_solution_type(float a, float b, float c) {
+    float D = b * b - 4 * a * c;  // Use * for multiplication, not ^
+    
+    if (D > 0) {
+        return two_real;
+    } else if (D == 0) {
+        return one_real;
+    } else {
+        return two_complex;
+    }
+}
+
+void print_solution_type(enum quadratic_solution qs) {
+    switch(qs) {
+        case two_real:
+            printf("Two real solutions.\n");
+            break;
+        case one_real:
+            printf("One real solution.\n");
+            break;
+        case two_complex:
+            printf("Two complex solutions.\n");
+            break;
+        default:
+            printf("Unknown solution type.\n");
+            break;
+    }
+}
+
+int main() {
+    float a_coefficent = 0.0f;
+    float b_coefficent = 0.0f;
+    float c_constant = 0.0f;
+    
+    printf("y = ax^2 + bx + c\n");
+    printf("a? \n");
+    scanf("%f", &a_coefficent);
+    printf("b? \n");
+    scanf("%f", &b_coefficent);
+    printf("c? \n");
+    scanf("%f", &c_constant);
+
+    enum quadratic_solution result = get_solution_type(a_coefficent,
+        b_coefficent,
+        c_constant);
+    print_solution_type(result);
+
+    return 0;
+}

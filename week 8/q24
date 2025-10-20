@@ -1,0 +1,81 @@
+#include <stdio.h>
+
+enum colour { RED, GREEN, BLUE, CYAN, MAGENTA, YELLOW, BLACK };
+void print_colour(enum colour c) {
+    switch(c) {
+        case RED:
+            printf("Red\n");
+            break;
+        case GREEN:
+            printf("Green\n");
+            break;
+        case BLUE:
+            printf("Blue\n");
+            break;
+        case CYAN:
+            printf("Cyan\n");
+            break;
+        case MAGENTA:
+            printf("Magenta\n");
+            break;
+        case YELLOW:
+            printf("Yellow\n");
+            break;
+        case BLACK:
+            printf("Black\n");
+            break;
+        default:
+            printf("Unknown Colour\n");
+    }
+}
+
+void detect_rgb(enum colour c) {
+    switch(c) {
+        case RED:
+        case GREEN:
+        case BLUE:
+            printf("RGB: Supported\n");
+            break;
+        case CYAN:
+        case MAGENTA:
+        case YELLOW:
+        case BLACK:
+            printf("RGB: Not Supported\n");
+            break;
+        default:
+            printf("Unknown Colour\n");
+    }
+}
+
+void detect_cmyk(enum colour c) {
+    switch(c) {
+        case CYAN:
+        case MAGENTA:
+        case YELLOW:
+        case BLACK:
+            printf("CMYK: Supported\n");
+            break;
+        case RED:
+        case GREEN:
+        case BLUE:
+            printf("CMYK: Not Supported\n");
+            break;
+        default:
+            printf("Unknown Colour\n");
+    }
+}
+
+int main() {
+    
+    
+    for (int i = 1; i <= 10; i++) {
+        for (enum colour c = RED; c <= BLACK; c++) {
+             print_colour(c);
+             detect_rgb(c);
+             detect_cmyk(c);
+             printf("\n");
+    }
+}
+
+    return 0;
+}

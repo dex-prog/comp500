@@ -272,7 +272,7 @@ void print_textbook(struct Textbook a_soft_drink)
     printf("Year of publication: %d\n", a_soft_drink.year);
 }
 
-//---------q8---------
+//---------q8--------- doesnt work. rounds wrong in CV valid
 
 #include <stdio.h>
 #include <math.h>
