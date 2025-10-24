@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+void increment(int *ptr);
+
+int main(void)
+{
+    int x = 0;
+    
+    printf(">\n");
+    scanf("%d", &x);
+    
+    increment(&x);
+    printf("x holds %d\n\n", x);
+    
+    increment(&x);
+    printf("x holds %d\n\n", x);
+    
+    increment(&x);
+    printf("x holds %d\n", x);
+    
+    return 0;
+}
+
+void increment(int *ptr)
+{
+    (*ptr)++;
+}

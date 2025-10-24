@@ -194,40 +194,40 @@ int main()
 
 #include <stdio.h>
 
-struct Softdrink {
-    char name[50];
+struct SoftDrink {
+    char name[16];
     int serving_size; 
     int energy_kj;
     float caffeine_mg;
     int max_daily_intake;
 };
 
-void print_soft_drink(struct Softdrink a_soft_drink);
+void print_soft_drink(struct SoftDrink d);
 
 int main(void)
 {
-	struct Softdrink life_mod;
+    struct SoftDrink life_mod;
 
-	sprintf(life_mod.name, "Life Modulus");
-	life_mod.serving_size = 250;
-	life_mod.energy_kj = 529;
-	life_mod.caffeine_mg = 80.5f;
-	life_mod.max_daily_intake = 500;
+    sprintf(life_mod.name, "Life Modulus");
+    life_mod.serving_size = 250;
+    life_mod.energy_kj = 529;
+    life_mod.caffeine_mg = 80.5f;
+    life_mod.max_daily_intake = 500;
 
     printf("A soft drink...\n\n");
 
-	print_soft_drink(life_mod);
+    print_soft_drink(life_mod);
 
-	return 0;
+    return 0;
 }
 
-void print_soft_drink(struct Softdrink a_soft_drink)
+void print_soft_drink(struct SoftDrink d)
 {
-    printf("Name: %s\n", a_soft_drink.name);
-    printf("Serving size: %d ml\n", a_soft_drink.serving_size);
-    printf("Energy content: %d kJ\n", a_soft_drink.energy_kj);
-    printf("Caffeine content: %.6f mg\n", a_soft_drink.caffeine_mg);
-    printf("Max daily intake: %d ml\n", a_soft_drink.max_daily_intake);
+    printf("Name: %s\n", d.name);
+    printf("Serving size: %d mL\n", d.serving_size);
+    printf("Energy content: %d kJ\n", d.energy_kj);
+    printf("Caffeine content: %f mg\n", d.caffeine_mg);
+    printf("Maximum daily intake: %d mL\n", d.max_daily_intake);
 }
 
 
@@ -288,32 +288,37 @@ float distance_between(struct Circle c1, struct Circle c2);
 
 int main(void)
 {
-	struct Circle c1;
-	struct Circle c2;
+    struct Circle c1;
+    struct Circle c2;
 
     float r1, r2;
     
     scanf("%f", &r1);
     scanf("%f", &r2);
-	c1.radius = r1;
-	c2.radius = r2;
-	c1.x_position = 11;
-	c1.y_position = 22;
-	c2.x_position = 4;
-	c2.y_position = 6;
+    c1.radius = r1;
+    c2.radius = r2;
+    c1.x_position = 11;
+    c1.y_position = 22;
+    c2.x_position = 4;
+    c2.y_position = 6;
 
-	float distance = distance_between(c1, c2);
+    float distance = distance_between(c1, c2);
 
-    distance = roundf(distance * 1000000) / 1000000;
+    printf("distance between two circle is %.6f.", distance);
 
-	printf("distance between two circle is %.6f.", distance);
-
-	return 0;
+    return 0;
 }
 
 float distance_between(struct Circle c1, struct Circle c2)
 {
-    float distance = sqrt(pow((c1.x_position - c2.x_position), 2) + pow((c1.y_position - c2.y_position), 2)) - c1.radius - c2.radius;
+    // Calculate center-to-center distance
+    float dx = c1.x_position - c2.x_position;
+    float dy = c1.y_position - c2.y_position;
+    float center_distance = sqrt(dx * dx + dy * dy);
+    
+    // Subtract both radii to get edge-to-edge distance
+    float distance = center_distance - c1.radius - c2.radius;
+    
     return distance;
 }
 
