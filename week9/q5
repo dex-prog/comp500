@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void remain_der(int numerator, int denominator, int *remainder);
+
+int main(void)
+{
+    int numerator, denominator, result;
+    
+    printf("Numerator? ");
+    scanf("%d", &numerator);
+    
+    printf("Denominator? \n");
+    scanf("%d", &denominator);
+    
+    remain_der(numerator, denominator, &result);
+    
+    printf("%d over %d, remainder is %d", numerator, denominator, result);
+    
+    return 0;
+}
+
+void remain_der(int numerator, int denominator, int *remainder)
+{
+    *remainder = numerator % denominator;
+}

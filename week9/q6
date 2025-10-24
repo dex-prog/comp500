@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+void decrement(int *ptr);
+
+int main(void)
+{
+    int x = 0;
+    
+    printf("> ");
+    scanf("%d", &x);
+    
+    decrement(&x);
+    printf("x holds %d\n\n", x);
+    
+    decrement(&x);
+    printf("x holds %d\n\n", x);
+    
+    decrement(&x);
+    printf("x holds %d\n", x);
+    
+    return 0;
+}
+
+void decrement(int *ptr)
+{
+    (*ptr)--;
+}

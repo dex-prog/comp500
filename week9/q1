@@ -21,10 +21,10 @@ int main(void)
 
     /* 3) Walk backwards printing each character using indirection */
     while (ptr >= start) {
-        putchar(*ptr);   // print character pointed to by ptr
-        ptr--;           // move left
+        putchar(*ptr);   
+        ptr--;           
     }
 
-    putchar('\n');       // final newline
+    putchar('\n');      
     return 0;
 }

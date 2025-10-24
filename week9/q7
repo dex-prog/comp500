@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <math.h>
+
+void compute_trig(float deg, float *sin_angle, float *cos_angle);
+
+int main(void)
+{
+    float angle, sine, cosine;
+    
+    printf("Angle? \n");
+    scanf("%f", &angle);
+    
+    compute_trig(angle, &sine, &cosine);
+    
+    printf("sin(%f) is %f\n", angle, sine);
+    printf("cos(%f) is %f\n", angle, cosine);
+    
+    return 0;
+}
+
+void compute_trig(float deg, float *sin_angle, float *cos_angle)
+{
+    float radians = deg * (3.14159f / 180.0f);
+    
+    *sin_angle = sinf(radians);
+    *cos_angle = cosf(radians);
+}
