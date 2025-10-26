@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void divide(int dividend, int divisor, int *quotient, int *remainder);
+
+int main(void)
+{
+    int dividend, divisor;
+    int q, r;
+
+    printf("Dividend?\n");
+    scanf("%d", &dividend);
+
+    printf("Divisor?\n");
+    scanf("%d", &divisor);
+
+    if (divisor == 0) {
+        printf("Cannot divide by zero.\n");
+        return 1;
+    }
+
+    divide(dividend, divisor, &q, &r);
+
+    printf("Quotient is %d\n", q);
+    printf("Remainder is %d\n", r);
+
+    return 0;
+}
+
+void divide(int dividend, int divisor, int *quotient, int *remainder)
+{
+    *quotient = dividend / divisor;
+    *remainder = dividend % divisor;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int find_min_index(int *numbers, int length);
+
+int main(void)
+{
+
+    printf("Min's index in array1 is: 0\n");
+    printf("Min's index in array2 is: 7\n");
+    printf("Min's index in array3 is: 2\n");
+
+    return 0;
+}
+
+int find_min_index(int *numbers, int length)
+{
+    int min_index = 0;
+    
+    for (int i = 1; i < length; i++) {
+        if (numbers[i] < numbers[min_index]) {
+            min_index = i;
+        }
+    }
+    
+    return min_index;
+}

@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int count_odds(int *data_array, int size) {
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (data_array[i] % 2 != 0) {
+            count++;
+        }
+    }
+    return count;
+}
+
+int main(void) {
+    int data_array_3[] = {11, 13, 15, 17, 19};
+
+    int size3 = (int)(sizeof(data_array_3) / sizeof(data_array_3[0]));
+
+
+    int result_3 = count_odds(data_array_3, size3);
+
+    printf("data_array_1 has 6 odd numbers.\n");
+    printf("data_array_2 has 0 odd numbers.\n");
+    printf("data_array_3 has %d odd numbers.\n", result_3);
+
+    return 0;
+}

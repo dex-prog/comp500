@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void print_array(int *p_array, int num_elements);
+void zero_out_array(int *p_array, int num_elements);
+
+int main(void)
+{
+    int main_array[] = {15, 24, 33, 42, 51};
+
+    printf("print_array called:\n");
+    print_array(main_array, 5);
+    printf("\n");
+
+    printf("zero_out_array called:\n\n");
+    zero_out_array(main_array, 5);
+
+    printf("print_array called:\n");
+    print_array(main_array, 5);
+
+    return 0;
+}
+
+void print_array(int *p_array, int num_elements)
+{
+    for (int i = 0; i < num_elements; i++) {
+        printf("%d", p_array[i]);
+        if (i + 1 < num_elements) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+}
+
+void zero_out_array(int *p_array, int num_elements)
+{
+    int *p = p_array;
+    for (int i = 0; i < num_elements; i++, p++) {
+        *p = 0;
+    }
+}

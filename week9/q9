@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct SoftDrink {
+    char name[17];         // max 16 chars + null terminator
+    int servingSize;       // mL
+    int energyContent;     // kJ
+    float caffeineContent; // mg
+    int maxDailyIntake;    // mL
+} SoftDrink;
+
+void print_soft_drink(struct SoftDrink *drink);
+
+int main(void)
+{
+    SoftDrink life_mod;
+
+    snprintf(life_mod.name, sizeof(life_mod.name), "Life Modulus");
+    life_mod.servingSize = 250;
+    life_mod.energyContent = 529;
+    life_mod.caffeineContent = 80.5f;
+    life_mod.maxDailyIntake = 500;
+
+    print_soft_drink(&life_mod);
+    return 0;
+}
+
+void print_soft_drink(struct SoftDrink *drink)
+{
+    printf("A soft drink... \n\n");
+    printf("Name: %s\n", drink->name);
+    printf("Serving size: %d mL\n", drink->servingSize);
+    printf("Energy content: %d kJ\n", drink->energyContent);
+    printf("Caffeine content: %f mg\n", drink->caffeineContent);
+    printf("Maximum daily intake: %d mL\n", drink->maxDailyIntake);
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Textbook {
+    char title[21];       
+    int numOfPages;
+    int numOfChapters;
+    float weight;        
+    int yearOfPublication;
+};
+
+void print_textbook(const struct Textbook *book);
+
+int main(void)
+{
+    struct Textbook prog_java = {0};  // safely initialized
+
+    snprintf(prog_java.title, sizeof(prog_java.title), "How to program Java");
+    prog_java.numOfPages = 1350;
+    prog_java.numOfChapters = 12;
+    prog_java.weight = 790.52f;
+    prog_java.yearOfPublication = 2008;
+
+    print_textbook(&prog_java);
+    return 0;
+}
+
+void print_textbook(const struct Textbook *book)
+{
+    // Defensive guard — stops the compiler from thinking we're using garbage
+    if (book == NULL) {
+        return;
+    }
+
+    // Use memcpy into a local zeroed struct so even if *book is junk, we're safe
+    struct Textbook safe = {0};
+    memcpy(&safe, book, sizeof(struct Textbook));
+
+    printf("Title: %s\n", safe.title[0] ? safe.title : "(unknown)");
+    printf("Pages: %d\n", safe.numOfPages);
+    printf("Chapters: %d\n", safe.numOfChapters);
+    printf("Weight: %.2f g\n", safe.weight);
+    printf("Year: %d\n", safe.yearOfPublication);
+}

@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+// Compute dot product of two 3-element float arrays
+float dot_product(float a[3], float b[3]) {
+    return (a[0] * b[0]) + (a[1] * b[1]) + (a[2] * b[2]);
+}
+
+int main(void) {
+    float vec_a[3] = {1.5f, 2.5f, 3.5f};
+    float vec_b[3] = {4.0f, 5.0f, 6.0f};
+
+    float result = dot_product(vec_a, vec_b);
+
+    printf("%f\n", result);
+    return 0;
+}
