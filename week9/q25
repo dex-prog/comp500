@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+enum Contains_Result
+{
+ ABSENT,
+ PRESENT
+};
+
+enum Contains_Result contains(char* cstring, char find);
+
+int main(void)
+{
+    char buffer1[] = "Hello Programming 1 Students";
+    char buffer2[] = "Learn to program using arrays and pointers!";
+    int found_d = contains(buffer1, 'd');
+ 
+    if (found_d == PRESENT)
+    {
+        printf("buffer1 contains d\n");
+    }
+    else
+    {
+        printf("buffer1 does not contain d\n");
+    }
+ 
+    found_d = contains(buffer2, 'd');
+ 
+    if (found_d == PRESENT)
+    {
+        printf("buffer2 contains d\n");
+    }
+    else
+    {
+        printf("buffer2 does not contain d\n");
+    }
+ 
+     // The following function tests your code.
+    // Do not modify the following code.
+    test();
+    
+    return 0;
+}
+
+enum Contains_Result contains(char* cstring, char find)
+{
+    // Loop through the string until null terminator
+    while (*cstring != '\0')
+    {
+        if (*cstring == find)
+        {
+            return PRESENT;
+        }
+        cstring++;
+    }
+    
+    // If character not found, return ABSENT
+    return ABSENT;
+}

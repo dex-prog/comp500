@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <string.h>
+
+void reverse_string(char* ptr);
+
+int main(void)
+{
+    char buffer[] = "abcde";
+    char example[] = "Hello Programming 1";
+    char user_inputs[256];
+
+    // A) buffer
+    printf("A1) buffer holds: %s\n", buffer);
+    reverse_string(buffer);
+    printf("A2) buffer holds: %s\n", buffer);
+
+    // B) example
+    printf("B1) example holds: %s\n", example);
+    reverse_string(example);
+    printf("B2) example holds: %s\n", example);
+
+    // C) user_inputs (read a full line)
+    if (fgets(user_inputs, sizeof(user_inputs), stdin) != NULL) {
+        size_t n = strlen(user_inputs);
+        if (n > 0 && user_inputs[n - 1] == '\n') {
+            user_inputs[n - 1] = '\0';
+        }
+    } else {
+        user_inputs[0] = '\0';
+    }
+    printf("C1) user_inputs holds: %s\n", user_inputs);
+    reverse_string(user_inputs);
+    printf("C2) user_inputs holds: %s\n", user_inputs);
+
+    return 0;
+}
+
+void reverse_string(char* ptr)
+{
+    size_t len = strlen(ptr);
+    if (len < 2) return;
+
+    char *left = ptr;
+    char *right = ptr + len - 1;
+
+    while (left < right) {
+        char tmp = *left;
+        *left++ = *right;
+        *right-- = tmp;
+    }
+}

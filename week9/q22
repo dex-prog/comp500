@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+
+int get_length(const char* cstring);
+
+int main(void)
+{
+    const char* text[] = {
+        "Steffan",
+        "Pascal",
+        "Jade"
+    };
+
+    char user_input[256];
+
+    // Print lengths of predefined strings
+    int n = (int)(sizeof(text) / sizeof(text[0]));
+    for (int i = 0; i < n; i++) {
+        int len = get_length(text[i]);
+        printf("%s is %d chars.\n", text[i], len);
+    }
+
+    // Read user input
+    if (fgets(user_input, sizeof(user_input), stdin) != NULL) {
+        size_t len = strlen(user_input);
+        if (len > 0 && user_input[len - 1] == '\n') {
+            user_input[len - 1] = '\0';
+        }
+    }
+
+    // Print length of user input
+    int user_len = get_length(user_input);
+    printf("%s is %d chars.\n", user_input, user_len);
+
+    return 0;
+}
+
+int get_length(const char* cstring)
+{
+    int count = 0;
+    
+    // Traverse the string until null terminator
+    while (*cstring != '\0') {
+        count++;
+        cstring++;
+    }
+    
+    return count;
+}

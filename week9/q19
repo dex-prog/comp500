@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+typedef struct Character_Counts {
+    int vowels;
+    int consonants;
+    int uppercase;
+    int lowercase;
+    int spaces;
+    int digits;
+} Character_Counts;
+
+Character_Counts analyse_text(char *str);
+
+static void print_counts(Character_Counts cc)
+{
+    printf("> Vowels = %d\n", cc.vowels);
+    printf("Consonants = %d\n", cc.consonants);
+    printf("Uppercase = %d\n", cc.uppercase);
+    printf("Lowercase = %d\n", cc.lowercase);
+    printf("Spaces = %d\n", cc.spaces);
+    printf("Digits = %d\n", cc.digits);
+}
+
+int main(void)
+{
+    char buffer[1000];
+
+    if (!fgets(buffer, sizeof(buffer), stdin)) {
+        return 1;
+    }
+    size_t n = strlen(buffer);
+    if (n > 0 && buffer[n - 1] == '\n') {
+        buffer[n - 1] = '\0';
+    }
+
+    Character_Counts counts = analyse_text(buffer);
+    print_counts(counts);
+
+    return 0;
+}
+
+Character_Counts analyse_text(char *str)
+{
+    Character_Counts cc = {0, 0, 0, 0, 0, 0};
+    const char *vowels = "aeiou";
+
+    const unsigned char *p = (const unsigned char *)str;
+    while (*p != '\0') {
+        unsigned char c = *p;
+        int lower = tolower(c);
+
+        if (isalpha(c)) {
+            if (strchr(vowels, lower) != NULL) {
+                cc.vowels++;
+            } else {
+                cc.consonants++;
+            }
+            if (isupper(c)) cc.uppercase++;
+            if (islower(c)) cc.lowercase++;
+        }
+
+        if (isspace(c)) cc.spaces++;
+        if (isdigit(c)) cc.digits++;
+
+        p++;
+    }
+
+    return cc;
+}

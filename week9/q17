@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int count_vowels(char *str)
+{
+    int count = 0;
+    while (*str != '\0') {
+        char c = (char)tolower((unsigned char)*str);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+            count++;
+        }
+        str++;
+    }
+    return count;
+}
+
+int main(void)
+{
+    char test_string1[] = "CaN_i_progrAM?\0";
+
+    int result;
+
+    result = count_vowels(test_string1);
+    printf("[%s] vowel: %d\n", test_string1, result);
+
+
+    return 0;
+}

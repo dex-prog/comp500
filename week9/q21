@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+void analyse(const char* code, int* p_dots, int* p_dashes)
+{
+    *p_dots = 0;
+    *p_dashes = 0;
+
+    if (code == NULL) return;
+
+    for (const char *p = code; *p != '\0'; ++p) {
+        if (*p == '.') {
+            (*p_dots)++;
+        } else if (*p == '-') {
+            (*p_dashes)++;
+        }
+    }
+}
+
+int main(void)
+{
+    const char* morse[] = {
+        "... --- ...",
+        "-- --- .-. ... .",
+        "-.-. --- -.. .",
+        "-.-. --- -- .--. ..... ----- -----",
+        ". -. ... . ..... ----- .----"
+    };
+
+    char user_input[100];
+    if (!fgets(user_input, sizeof(user_input), stdin)) {
+        return 1; // silently fail if input fails
+    }
+
+    int dots = 0, dashes = 0;
+    int n = (int)(sizeof(morse) / sizeof(morse[0]));
+
+    for (int i = 0; i < n; i++) {
+        analyse(morse[i], &dots, &dashes);
+        printf("%s\ndots:   %d\ndashes: %d\n\n", morse[i], dots, dashes);
+    }
+
+    analyse(user_input, &dots, &dashes);
+    printf("%sdots:   %d\ndashes: %d\n", user_input, dots, dashes);
+
+    return 0;
+}
