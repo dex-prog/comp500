@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int num_spaces(char *cstring);
+
+int main(void)
+{
+    char *text[] = { "Talk is cheap. Show me the code. --- Linus Torvalds",
+        "Any fool can use a computer. Many do. --- Ted Nelson",
+        "All real programmers know C of course. --- Unknown" };
+
+    printf("%s has %d spaces.\n", text[0], num_spaces(text[0]));
+    printf("%s has %d spaces.\n", text[1], num_spaces(text[1]));
+    printf("%s has %d spaces.\n", text[2], num_spaces(text[2]));
+    
+    char user_input[64];
+    scanf("%[^\n]", user_input);
+    printf("%s has %d spaces.\n", user_input, num_spaces(user_input));
+    return 0;
+}
+
+int num_spaces(char *cstring)
+{
+    int count = 0;
+    
+    // Traverse the string until null terminator
+    while (*cstring != '\0') {
+        if (*cstring == ' ') {
+            count++;
+        }
+        cstring++;
+    }
+    
+    return count;
+}
